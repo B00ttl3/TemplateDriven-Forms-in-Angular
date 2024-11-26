@@ -13,7 +13,8 @@ export class AppComponent {
 
   formSubmit( event: any ) {
     event.preventDefault();
-    console.log('formSubmitted')
+    console.log('formSubmitted');
+    console.log(event.target.name.value);
   }
   
 }
