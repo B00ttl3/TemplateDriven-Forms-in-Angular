@@ -11,7 +11,8 @@ export class AppComponent {
   title: string = 'This loaded dynamically'
   
 
-  formSubmit() {
+  formSubmit( event: any ) {
+    event.preventDefault();
     console.log('formSubmitted')
   }
   

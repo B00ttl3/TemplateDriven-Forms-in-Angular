@@ -3,7 +3,7 @@
 <div class="form-center">
   <h1>User Form</h1>
 
-  <form (submit)="formSubmit()">
+  <form (submit)="formSubmit($event)">
     <input type="text" placeholder="Name" name="name">
     <br /><br />
     <input type="email" placeholder="Email" name="email">
