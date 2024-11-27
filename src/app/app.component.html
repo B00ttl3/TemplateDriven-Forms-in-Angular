@@ -23,7 +23,9 @@
 <div class="form-center">
   <h1>User Form</h1>
 
-  <form (submit)="formSubmit($event)" ngForm >
+  <!-- to capture the data from the form we have to assign the ngForm to a paramter which is #f in this case and have to pass that f to the formSubmit() instead of event, as now this f will act like the event -->
+
+  <form (submit)="formSubmit(f)" #f = 'ngForm' >
     <input type="text" placeholder="Name" name="name">
     <br /><br />
     <input type="email" placeholder="Email" name="email">
