@@ -14,7 +14,7 @@ export class AppComponent {
 
   formSubmit( event: any ) {
     console.log('formSubmitted');
-    console.log(event);
+    console.log(event.value);
   }
   
 }
