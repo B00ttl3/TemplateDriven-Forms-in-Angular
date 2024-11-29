@@ -26,9 +26,12 @@
   <!-- to capture the data from the form we have to assign the ngForm to a paramter which is #f in this case and have to pass that f to the formSubmit() instead of event, as now this f will act like the event. this will not specifically capture the data of the all form, to capture the data of the all form, we will have to add the ngModel at the end of the each input part of form, as in angular we have to work in the FormControl class  -->
 
   <form (submit)="formSubmit(f)" #f = 'ngForm' >
-    <input type="text" placeholder="Name" name="name" ngModel >
+    <input type="text" placeholder="Name" name="fullName" ngModel #fullName="ngModel" (change)="getValue(fullName)" required>
+    <div class="alert">
+      <p>Full Name is required</p>
+    </div>
     <br /><br />
-    <input type="email" placeholder="Email" name="email" ngModel >
+    <input type="email" placeholder="Email" name="email" ngModel required>
     <br /><br />
     <input type="text" placeholder="Address" name="address" ngModel >
     <br /><br />

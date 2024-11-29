@@ -16,5 +16,9 @@ export class AppComponent {
     console.log('formSubmitted');
     console.log(event.value);
   }
+
+  getValue(fullName:any) {
+    console.log(fullName);
+  }
   
 }
