@@ -7,6 +7,6 @@
     color: red;
 }
 
-input.ng-touched{
+input.name{
     border: 2px solid red;
 }

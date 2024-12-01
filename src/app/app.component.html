@@ -30,18 +30,24 @@
     <input 
     type="text" 
     placeholder="Name" 
-    name="fullName" 
+    name="fullName"
+    class="name" 
     ngModel 
     #fullName="ngModel" 
     (change)="getValue(fullName)" 
-    [class.ng-touched]="fullName.invalid && fullName.touched"
+    [class.name]="fullName.invalid && fullName.touched"
     required
     minlength="3"
     >
     <div class="alert">
 
       @if(fullName.invalid && fullName.touched) {
-        <p>Full Name is required</p>
+        @if( fullName.hasError('required') ){
+          <p>Full Name is Required</p>
+        }
+        @if( fullName.hasError('minlength') ){
+        <p>Name must Be atleast 3 charachtors long</p>
+       }
       }
     </div>
     <br />
