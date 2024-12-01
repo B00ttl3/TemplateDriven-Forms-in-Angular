@@ -35,7 +35,9 @@
     #fullName="ngModel" 
     (change)="getValue(fullName)" 
     [class.ng-touched]="fullName.invalid && fullName.touched"
-    required>
+    required
+    minlength="3"
+    >
     <div class="alert">
 
       @if(fullName.invalid && fullName.touched) {
