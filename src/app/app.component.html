@@ -27,8 +27,17 @@
 
   <!-- the form data is required to be filled. so to do that we have to make the getValue method inside our ts file where will console.log it and then insie the ngModel when we inspect we will use the values invalid and touched, which both should be true, if both of these values will be true then the alert div which we have made will be shown else it wont be shown -->
   <form (submit)="formSubmit(f)" #f = 'ngForm' >
-    <input type="text" placeholder="Name" name="fullName" ngModel #fullName="ngModel" (change)="getValue(fullName)" required>
+    <input 
+    type="text" 
+    placeholder="Name" 
+    name="fullName" 
+    ngModel 
+    #fullName="ngModel" 
+    (change)="getValue(fullName)" 
+    [class.ng-touched]="fullName.invalid && fullName.touched"
+    required>
     <div class="alert">
+
       @if(fullName.invalid && fullName.touched) {
         <p>Full Name is required</p>
       }
