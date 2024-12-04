@@ -38,6 +38,7 @@
     [class.name]="fullName.invalid && fullName.touched"
     required
     minlength="3"
+    maxlength="15"
     >
     <div class="alert">
 
@@ -47,6 +48,9 @@
         }
         @if( fullName.hasError('minlength') ){
         <p>Name must Be atleast 3 charachtors long</p>
+       }
+       @if( fullName.hasError('maxlength') ){
+        <p>Name must be less than 50 charachtors...</p>
        }
       }
     </div>
