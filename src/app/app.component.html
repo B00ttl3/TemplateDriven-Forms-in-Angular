@@ -62,11 +62,15 @@
     #email="ngModel"
     [className]="email.invalid  && email.touched"
     (change)="getValue(email)"
-    required>
+    required
+    pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
     <div class="alert">
     @if(email.invalid && email.touched) {
       @if( email.hasError('required') ){
         <p>Email is Required</p>
+      }
+      @if( email.hasError('pattern') ){
+        <p>Please add the proper email...</p>
       }
     }
   </div>
