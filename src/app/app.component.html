@@ -38,7 +38,7 @@
     [class.name]="fullName.invalid && fullName.touched"
     required
     minlength="3"
-    maxlength="15"
+    maxlength="10"
     >
     <div class="alert">
 
@@ -50,13 +50,31 @@
         <p>Name must Be atleast 3 charachtors long</p>
        }
        @if( fullName.hasError('maxlength') ){
-        <p>Name must be less than 50 charachtors...</p>
+        <p>Name must be less than 15 charachtors...</p>
        }
       }
     </div>
     <br />
-    <input type="email" placeholder="Email" name="email" ngModel required>
-    <br /><br />
+    <input 
+    type="email" 
+    placeholder="Email" 
+    ngModel 
+    name="email" 
+    #email="ngModel"
+    required>
+    @if(email.invalid && email.touched) {
+      @if( email.hasError('required') ){
+        <p>Email is Required</p>
+      }
+      @if( fullName.hasError('minlength') ){
+      <p>Name must Be atleast 3 charachtors long</p>
+     }
+     @if( fullName.hasError('maxlength') ){
+      <p>Name must be less than 15 charachtors...</p>
+     }
+    }
+
+    <br/><br>
     <input type="text" placeholder="Address" name="address" ngModel >
     <br /><br />
 
