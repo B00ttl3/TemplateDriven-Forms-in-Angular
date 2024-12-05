@@ -31,7 +31,6 @@
     type="text" 
     placeholder="Name" 
     name="fullName"
-    class="name" 
     ngModel 
     #fullName="ngModel" 
     (change)="getValue(fullName)" 
@@ -61,20 +60,18 @@
     ngModel 
     name="email" 
     #email="ngModel"
+    [className]="email.invalid  && email.touched"
+    (change)="getValue(email)"
     required>
+    <div class="alert">
     @if(email.invalid && email.touched) {
       @if( email.hasError('required') ){
         <p>Email is Required</p>
       }
-      @if( fullName.hasError('minlength') ){
-      <p>Name must Be atleast 3 charachtors long</p>
-     }
-     @if( fullName.hasError('maxlength') ){
-      <p>Name must be less than 15 charachtors...</p>
-     }
     }
+  </div>
 
-    <br/><br>
+    <br />
     <input type="text" placeholder="Address" name="address" ngModel >
     <br /><br />
 
