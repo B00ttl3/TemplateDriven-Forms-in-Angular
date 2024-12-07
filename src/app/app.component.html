@@ -26,7 +26,7 @@
   <!-- to capture the data from the form we have to assign the ngForm to a paramter which is #f in this case and have to pass that f to the formSubmit() instead of event, as now this f will act like the event. this will not specifically capture the data of the all form, to capture the data of the all form, we will have to add the ngModel at the end of the each input part of form, as in angular we have to work in the FormControl class  -->
 
   <!-- the form data is required to be filled. so to do that we have to make the getValue method inside our ts file where will console.log it and then insie the ngModel when we inspect we will use the values invalid and touched, which both should be true, if both of these values will be true then the alert div which we have made will be shown else it wont be shown -->
-  <form (submit)="formSubmit(f)" #f = 'ngForm' >
+  <form (ngSubmit)="formSubmit(f)" #f = 'ngForm' >
     <input 
     type="text" 
     placeholder="Name" 
@@ -34,7 +34,7 @@
     ngModel 
     #fullName="ngModel" 
     (change)="getValue(fullName)" 
-    [class.name]="fullName.invalid && fullName.touched"
+    [class.ng-invalid]="fullName.invalid && fullName.touched"
     required
     minlength="3"
     maxlength="10"
@@ -60,7 +60,7 @@
     ngModel 
     name="email" 
     #email="ngModel"
-    [className]="email.invalid  && email.touched"
+    [class.ng-invalid]="email.invalid  && email.touched"
     (change)="getValue(email)"
     required
     pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
