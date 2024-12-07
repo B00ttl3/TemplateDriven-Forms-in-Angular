@@ -78,11 +78,13 @@
     <br />
     <textarea placeholder="Address" name="address" ngModel #address="ngModel" required></textarea>
     <div class="alert">
+      @if(address.invalid && address.touched){
       @if( address.hasError('required') ){
         <p>Address is Required</p>
       }
+    }
     </div>
-    <br /><br />
+    <br />
 
     <button>Submit</button>
   </form>
