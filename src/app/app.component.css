@@ -10,3 +10,7 @@
 input.ng-touched{
     border: 2px solid red;
 }
+
+textarea.ng-touched{
+    border: 2px solid red;
+}
