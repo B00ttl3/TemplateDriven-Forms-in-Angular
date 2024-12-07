@@ -7,7 +7,7 @@
     color: red;
 }
 
-input.ng-touched{
+input.ng-invalid{
     border: 2px solid red;
 }
 
